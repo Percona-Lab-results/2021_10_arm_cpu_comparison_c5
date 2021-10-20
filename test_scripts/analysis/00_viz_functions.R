@@ -290,9 +290,6 @@ disk_usage <- function(input_resource_dt){
   result_plot
 }
 
-# # input_dt <- oltp_test_result
-# input_dt <- oltp_test_result[ec2_type == "small"]
-
 intel_graviton_comparison <- function(input_dt, 
                                       input_subtitle=NULL,
                                       input_caption,
@@ -379,7 +376,6 @@ intel_graviton_comparison <- function(input_dt,
   dd_dt$Number_of_threads <- factor(dd_dt$Number_of_threads, levels=list_of_threads)
   dd_dt$color <- "none"
   
-  # dd_dt <- na.omit(dd_dt)
   
   if(input_relative){
     min_break_value <- (round(min(dd_dt$diff_GI_rel) / 10)-1)*10
@@ -604,8 +600,7 @@ efficient_comparison_point_plot <- function(input_dt, facet_threads=FALSE){
                                 'Intel'='dodgerblue',
                                 'AMD'='firebrick1'), 
                       labels = c('Graviton','Intel', "AMD"))
-  # result_plot + facet_wrap(.~factor(Number_of_threads,levels = c(1,2,4,8,16,32,64,128)), scales="free_y")
-  
+
   if(facet_threads){
     result_plot <- result_plot + 
       facet_wrap(.~factor(Number_of_threads,levels = c(1,2,4,8,16,32,64,128)), scales="free_y")+
