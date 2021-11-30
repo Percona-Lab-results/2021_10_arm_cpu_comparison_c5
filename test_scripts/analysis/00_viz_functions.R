@@ -585,9 +585,9 @@ efficient_comparison_point_plot <- function(input_dt, facet_threads=FALSE){
     labs(title = "CPU types efficient comparison (for MySQL)",
          x="Amount of requests per 1 USD",
          y="Approximate amount of requests per hour",
-         size="Concurrency\namount of threads:",
-         color="CPU type:",
-         shape="vCPU amount") +
+         size="size:\nConcurrency\namount of threads:",
+         color="color:\nCPU type:",
+         shape="shape:\nvCPU amount") +
     scale_shape_manual(values=1:nlevels(as.factor(temp_dt$cpu_amount))) +
     scale_x_sqrt(breaks=x_breaks,
                  labels=label_number(suffix = " M", scale = 1e-6)) +
@@ -595,7 +595,7 @@ efficient_comparison_point_plot <- function(input_dt, facet_threads=FALSE){
                  labels=label_number(suffix = " M", scale = 1e-6)) +
     theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust=1),
           axis.text.y = element_text(angle = -45, vjust = 0.9, hjust=1, size=6)) +
-    scale_color_manual(name = 'CPU type', 
+    scale_color_manual(name = 'color:\nCPU type', 
                       values =c('Graviton'='darkgoldenrod1',
                                 'Intel'='dodgerblue',
                                 'AMD'='firebrick1'), 

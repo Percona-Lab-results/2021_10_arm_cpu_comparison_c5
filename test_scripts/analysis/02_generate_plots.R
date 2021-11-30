@@ -296,9 +296,7 @@ p_05_rpd_overview <- requests_per_dollar(oltp_test_result)
 save_plot("05_p_05_rpd_overview.png", p_05_rpd_overview)
 p_05_rpd_s <- requests_per_dollar(oltp_test_result[ec2_type == "small"])
 save_plot("05_p_05_rpd_small.png", p_05_rpd_s)
-p_05_rpd_m <- requests_per_dollar(oltp_test_result[ec2_type == "medium"])
-save_plot("05_p_05_rpd_medium.png", p_05_rpd_m)
-p_05_rpd_f <- requests_per_dollar(oltp_test_result[ec2_type == "large"])
+p_05_rpd_f <- requests_per_dollar(oltp_test_result[ec2_type != "small"])
 save_plot("05_p_05_rpd_large.png", p_05_rpd_f)
 
 ### request per hour  ##############
@@ -306,9 +304,7 @@ p_06_rph_overview <- requests_ph(oltp_test_result)
 save_plot("06_p_06_rph_overview.png", p_06_rph_overview)
 p_06_rph_s <- requests_ph(oltp_test_result[ec2_type == "small"])
 save_plot("06_p_06_rph_small.png", p_06_rph_s)
-p_06_rph_m <- requests_ph(oltp_test_result[ec2_type == "medium"])
-save_plot("06_p_06_rph_medium.png", p_06_rph_m)
-p_06_rph_f <- requests_ph(oltp_test_result[ec2_type == "large"])
+p_06_rph_f <- requests_ph(oltp_test_result[ec2_type != "small"])
 save_plot("06_p_06_rph_large.png", p_06_rph_f)
 
 #### eficient
